@@ -1,14 +1,57 @@
 object fmDraw: TfmDraw
   Left = 0
   Top = 0
-  Caption = 'Form3'
+  BorderIcons = [biMinimize, biMaximize, biHelp]
+  Caption = #1054#1090#1088#1080#1089#1086#1074#1082#1072
   ClientHeight = 480
   ClientWidth = 640
+  Cursor = crHandPoint
   Position = ScreenCenter
+  StyleBook = Form1.StyleBook1
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnClose = FormClose
   OnShow = FormShow
   DesignerMasterStyle = 0
+  object pb: TPaintBox
+    Align = Client
+    PopupMenu = PopupMenu1
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 584
+    Top = 32
+    object mItem1: TMenuItem
+      Text = #1042#1085#1077#1096#1085#1080#1077' '#1085#1072#1075#1088#1091#1078#1077#1085#1080#1103
+      OnClick = mItem1Click
+    end
+    object mItem2: TMenuItem
+      Text = #1055#1088#1080#1074#1077#1076#1105#1085#1085#1099#1077' '#1085#1072#1075#1088#1091#1079#1082#1080
+      OnClick = mItem2Click
+    end
+  end
+  object pb1: TPaintBox
+    Align = Client
+    PopupMenu = PopupMenu1
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object pb2: TPaintBox
+    Align = Client
+    PopupMenu = PopupMenu1
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    object Ellipse1: TEllipse
+      Position.X = 336.000000000000000000
+      Position.Y = 152.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
 end

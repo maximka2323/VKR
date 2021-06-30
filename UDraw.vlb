@@ -1,0 +1,17 @@
+﻿[pb]
+Coordinates=10,56,52,58
+ExplicitSubNodes=Pressed
+
+[PopupMenu1]
+Coordinates=118,1,90,36
+
+[mItem2]
+Coordinates=127,10,57,36
+
+[mItem1]
+Coordinates=10,10,57,36
+
+[]
+Coordinates=120,70,40,36
+Visible=True
+

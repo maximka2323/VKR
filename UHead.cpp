@@ -12,10 +12,12 @@
 #include <comobj.hpp>
 #include "utilcls.h"
 #include "UHead.h"
-#include "UMaster.h"
 #include "URef.h"
 #include "UDraw.h"
-#include "Unit2.h"
+#include "ULib.h"
+#include "UOutData.h"
+#include "UInData.h"
+#include "UOutD.h"
 
 using namespace std;
 using namespace Eigen;
@@ -37,13 +39,11 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 double  Strength[100][4];
-int NE, NU;
+
 double Nx[101], Mx[101], Qx[101], Ux[101], Wx[101], FIx[101], S1x[101], S2x[101];
 Pmtx globmtx[100][100];
 Pvec globv[100];
-
-element EL[100];
-double Support[100][3];
+double Support[100][4];
 int	NSupport;
 bool med = true;
 MatrixXd gpmtx(300,300);
@@ -53,18 +53,9 @@ VectorXd FGmod(300);
 VectorXd Dlt(300);
 int nEl = 1;
 usel US[100];
+element EL[100];
+int NE, NU;
 
-
-
-//---------------------------------------------------------------------------
-
-
-void __fastcall TForm1::Button2Click(TObject *Sender)
-{
-	for(int i=0;i<6;i++)
-	for(int j=0;j<6;j++)
-	Form1->StringGrid3->Cells[i][j] = " ";
-}
 //---------------------------------------------------------------------------
 
 void SetGeom(int n)
@@ -124,9 +115,9 @@ void Getglobvec()
 {
 
 	  for(int k=0;k<NU;k++){
-  globv[k].v(0)=0;
-  globv[k].v(1)=0;
-  globv[k].v(2)=0;
+		globv[k].v(0)=0;
+		globv[k].v(1)=0;
+		globv[k].v(2)=0;
 	  }
 //  {Учитываем распределенные нагрузки p,q и температуру T}
 
@@ -136,11 +127,6 @@ void Getglobvec()
 		  globv[EL[i].U2-1] = globv[EL[i].U2-1] + EL[i].Gvec[1];
 		}
 	VectorXd usr(6);
-	for(int j=0;j<NU;j++) {
-	Form1->StringGrid27->Cells[0][3*j] = FloatToStrF(globv[j].v(0),ffFixed,8,2);
-	Form1->StringGrid27->Cells[0][3*j+1] = FloatToStrF(globv[j].v(1),ffFixed,8,2);
-	Form1->StringGrid27->Cells[0][3*j+2] = FloatToStrF(globv[j].v(2),ffFixed,8,2);
-	}
 
 
 	for(int i=0;i<NU;i++)
@@ -148,12 +134,6 @@ void Getglobvec()
 
 		globv[i] = globv[i] + US[i].R;
 //		globv[EL[i].U2-1] = globv[EL[i].U2-1] + US[EL[i].U2-1].R;
-	}
-
-		for(int j=0;j<NU;j++) {
-	Form1->StringGrid27->Cells[2][3*j] = FloatToStrF(globv[j].v(0),ffFixed,8,2);
-	Form1->StringGrid27->Cells[2][3*j+1] = FloatToStrF(globv[j].v(1),ffFixed,8,2);
-	Form1->StringGrid27->Cells[2][3*j+2] = FloatToStrF(globv[j].v(2),ffFixed,8,2);
 	}
 
 	for(int i=0;i<NE;i++)
@@ -168,8 +148,6 @@ void Getglobvec()
 
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
-//if(!(Form1->TabControl2->Visible))
-//		Form1->TabControl2->Visible = true;
 	Form1->TabControl2->ActiveTab = TabItem15;
 }
 
@@ -218,12 +196,6 @@ void Boundary_Data(){/*{Учет ограничений, наложенных на перемещения узлов констр
 
 }// {Boundary_Data} */
 
-
-
-
-
-
-
 void  usl()
 {//  {Определяем реакции опор (реакции связей)}
 
@@ -268,8 +240,8 @@ void  usl()
 	for (int n=0;n<NU;n++) {
   for (int i=0;i<3;i++)   {
 		US[n].D[i] =  Dlt(n*3+i);
-   Form1->StringGrid30->Cells[i+1][n] = FloatToStrF(US[n].D[i],ffFixed,8,4);
-   Form1->StringGrid30->Cells[0][n] = n+1 ;
+   fmOut->StringGrid30->Cells[i+1][n] = FloatToStrF(US[n].D[i],ffFixed,8,4);
+   fmOut->StringGrid30->Cells[0][n] = n+1 ;
   }
   }
 
@@ -339,7 +311,8 @@ void  usl()
 
 
 //
-void Calc_ParametersNDS(int n){/*{Вычисление компонентов НДС в поперечных сечениях балочного элемента.
+void Calc_ParametersNDS(int n)
+{/*{Вычисление компонентов НДС в поперечных сечениях балочного элемента.
  m - номер элемента}      */
 double x, Smax, SigmaMax = 0;
 		//x - безразмерная координата поперечного сечения (x=x/L)
@@ -385,11 +358,6 @@ void prmtx()
 			gqmtx(3*i+1,3*j+2) = EL[0].Lmtx[i][j].mtx(1,2);
 
    }
-   for(int i=0;i<6;i++)
-   for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid21->Cells[i][j] = FloatToStrF(gqmtx(i,j),ffFixed,8,2);
-	}
 
 	for(int i=0;i<2;i++)
    for(int j=0;j<2;j++){
@@ -405,11 +373,6 @@ void prmtx()
 
    }
 
-   for(int i=0;i<6;i++)
-   for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid22->Cells[i][j] = FloatToStrF(gqmtx(i,j),ffFixed,8,2);
-	}
 	for(int i=0;i<2;i++)
    for(int j=0;j<2;j++){
 			gqmtx(3*i,3*j) = EL[0].Gmtx[i][j].mtx(0,0);
@@ -423,11 +386,6 @@ void prmtx()
 			gqmtx(3*i+1,3*j+2) = EL[0].Gmtx[i][j].mtx(1,2);
 
    }
-   for(int i=0;i<6;i++)
-   for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid23->Cells[i][j] = FloatToStrF(gqmtx(i,j),ffFixed,8,2);
-	}
 
 	for(int i=0;i<2;i++)
    for(int j=0;j<2;j++){
@@ -443,11 +401,6 @@ void prmtx()
 
    }
 
-   for(int i=0;i<6;i++)
-   for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid24->Cells[i][j] = FloatToStrF(gqmtx(i,j),ffFixed,8,2);
-	}
 
 		VectorXd gqvec(6);
    for(int j=0;j<2;j++){
@@ -455,55 +408,32 @@ void prmtx()
 			gqvec(3*j+1) = EL[0].Lvec[j].v(1);
 			gqvec(3*j+2) = EL[0].Lvec[j].v(2);
 }
-for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid25->Cells[0][j] = FloatToStrF(gqvec(j),ffFixed,8,2);
-	}
 	  for(int j=0;j<2;j++){
 			gqvec(3*j) = EL[0].Gvec[j].v(0);
 			gqvec(3*j+1) = EL[0].Gvec[j].v(1);
 			gqvec(3*j+2) = EL[0].Gvec[j].v(2);
 }
-for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid25->Cells[2][j] = FloatToStrF(gqvec(j),ffFixed,8,2);
-	}  for(int j=0;j<2;j++){
+	 for(int j=0;j<2;j++){
 			gqvec(3*j) = EL[1].Lvec[j].v(0);
 			gqvec(3*j+1) = EL[1].Lvec[j].v(1);
 			gqvec(3*j+2) = EL[1].Lvec[j].v(2);
 }
-for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid26->Cells[0][j] = FloatToStrF(gqvec(j),ffFixed,8,2);
-	}
 	for(int j=0;j<2;j++){
 			gqvec(3*j) = EL[1].Gvec[j].v(0);
 			gqvec(3*j+1) = EL[1].Gvec[j].v(1);
 			gqvec(3*j+2) = EL[1].Gvec[j].v(2);
 }
-for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid26->Cells[2][j] = FloatToStrF(gqvec(j),ffFixed,8,2);
-	}
 
-    for(int j=0;j<2;j++){
+	for(int j=0;j<2;j++){
 			gqvec(3*j) = EL[2].Lvec[j].v(0);
 			gqvec(3*j+1) = EL[2].Lvec[j].v(1);
 			gqvec(3*j+2) = EL[2].Lvec[j].v(2);
 }
-for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid26->Cells[4][j] = FloatToStrF(gqvec(j),ffFixed,8,2);
-	}
 	for(int j=0;j<2;j++){
 			gqvec(3*j) = EL[2].Gvec[j].v(0);
 			gqvec(3*j+1) = EL[2].Gvec[j].v(1);
 			gqvec(3*j+2) = EL[2].Gvec[j].v(2);
 }
-for(int j=0;j<6;j++)
-   {
-		Form1->StringGrid26->Cells[5][j] = FloatToStrF(gqvec(j),ffFixed,8,2);
-	}
 }
 
 
@@ -511,25 +441,25 @@ void pNDS(){
 	for (int IRow=0;IRow<101;IRow++)
 		{
 //		  if(IRow == 3||IRow == 4) ShowMessage("!!!x = "+FloatToStr(0.6)+" ");
-		  Form1->StringGrid29->Cells[0][IRow] = static_cast<double>(IRow)/100;
-		  Form1->StringGrid29->Cells[1][IRow] = FloatToStrF(Nx[IRow],ffFixed,8,2);
-		  Form1->StringGrid29->Cells[2][IRow] = FloatToStrF(Mx[IRow],ffFixed,8,2);
-		  Form1->StringGrid29->Cells[3][IRow] = FloatToStrF(Qx[IRow],ffFixed,8,2);
-		  Form1->StringGrid29->Cells[4][IRow] = FloatToStrF(Ux[IRow],ffFixed,8,4);
-		  Form1->StringGrid29->Cells[5][IRow] = FloatToStrF(Wx[IRow],ffFixed,8,4);
-		  Form1->StringGrid29->Cells[6][IRow] = FloatToStrF(FIx[IRow],ffFixed,8,6);
-		  Form1->StringGrid29->Cells[7][IRow] = FloatToStrF(S1x[IRow],ffFixed,8,2);
-		  Form1->StringGrid29->Cells[8][IRow] = FloatToStrF(S2x[IRow],ffFixed,8,2);
+		  fmOut->StringGrid29->Cells[0][IRow] = static_cast<double>(IRow)/100;
+		  fmOut->StringGrid29->Cells[1][IRow] = FloatToStrF(Nx[IRow],ffFixed,8,2);
+		  fmOut->StringGrid29->Cells[2][IRow] = FloatToStrF(Mx[IRow],ffFixed,8,2);
+		  fmOut->StringGrid29->Cells[3][IRow] = FloatToStrF(Qx[IRow],ffFixed,8,2);
+		  fmOut->StringGrid29->Cells[4][IRow] = FloatToStrF(Ux[IRow],ffFixed,8,4);
+		  fmOut->StringGrid29->Cells[5][IRow] = FloatToStrF(Wx[IRow],ffFixed,8,4);
+		  fmOut->StringGrid29->Cells[6][IRow] = FloatToStrF(FIx[IRow],ffFixed,8,6);
+		  fmOut->StringGrid29->Cells[7][IRow] = FloatToStrF(S1x[IRow],ffFixed,8,2);
+		  fmOut->StringGrid29->Cells[8][IRow] = FloatToStrF(S2x[IRow],ffFixed,8,2);
 		}
 }
 
 void pS(){
 	for (int IRow=0;IRow<NE;IRow++)
 		{
-		  Form1->StringGrid32->Cells[0][IRow] = FloatToStrF(Strength[IRow][0],ffFixed,8,0);
-		  Form1->StringGrid32->Cells[1][IRow] = FloatToStrF(Strength[IRow][1],ffFixed,8,2);
-		  Form1->StringGrid32->Cells[2][IRow] = FloatToStrF(Strength[IRow][2],ffFixed,8,2);
-		  Form1->StringGrid32->Cells[3][IRow] = FloatToStrF(Strength[IRow][3],ffFixed,8,2);
+		  fmOut->StringGrid32->Cells[0][IRow] = FloatToStrF(Strength[IRow][0],ffFixed,8,0);
+		  fmOut->StringGrid32->Cells[1][IRow] = FloatToStrF(Strength[IRow][1],ffFixed,8,2);
+		  fmOut->StringGrid32->Cells[2][IRow] = FloatToStrF(Strength[IRow][2],ffFixed,8,2);
+		  fmOut->StringGrid32->Cells[3][IRow] = FloatToStrF(Strength[IRow][3],ffFixed,8,2);
 }		 }
 
 void pR(){
@@ -544,8 +474,6 @@ void pR(){
 
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-//	if(!(Form1->TabControl2->Visible))
-//		Form1->TabControl2->Visible = true;
 	Form1->TabControl2->ActiveTab = TabItem16;
 
 }
@@ -553,88 +481,16 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 
 void __fastcall TForm1::Button6Click(TObject *Sender)
 {
-//	if(!(Form1->TabControl2->Visible))
-//		Form1->TabControl2->Visible = true;
 Form1->TabControl2->ActiveTab = TabItem17;
 
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button7Click(TObject *Sender)
-{
-	 LineSeries1->Clear();
-	if(Form1->Chart1->Visible)
-	Form1->Chart1->Visible = false;
-	 else if(Form1->Chart2->Visible)
-	 Form1->Chart2->Visible = false;
-	 else if(Form1->Chart3->Visible)
-	 Form1->Chart3->Visible = false;
-	 else if(Form1->Chart5->Visible)
-	 Form1->Chart5->Visible = false;
-	 else if(Form1->Chart6->Visible)
-	 Form1->Chart6->Visible = false;
-	 else if(Form1->Chart7->Visible)
-	 Form1->Chart7->Visible = false;
-	 Form1->Chart4->Visible = true;
-	double Ax[101], Ay[101];
-
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[4][i]);
-		LineSeries1->AddXY(Ax[i],Ay[i]);
-	}
-	Form1->Chart4->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart4->LeftAxis->Title->Text = "U, мм" ;
-
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button8Click(TObject *Sender)
-{
- LineSeries2->Clear();
-	if(Form1->Chart1->Visible)
-	Form1->Chart1->Visible = false;
-	 else if(Form1->Chart2->Visible)
-	 Form1->Chart2->Visible = false;
-	 else if(Form1->Chart3->Visible)
-	 Form1->Chart3->Visible = false;
-	 else if(Form1->Chart4->Visible)
-	 Form1->Chart4->Visible = false;
-	 else if(Form1->Chart6->Visible)
-	 Form1->Chart6->Visible = false;
-	 else if(Form1->Chart7->Visible)
-	 Form1->Chart7->Visible = false;
-	 Form1->Chart5->Visible = true;
-	double Ax[101], Ay[101];
-
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[3][i]);
-		LineSeries2->AddXY(Ax[i],Ay[i]);
-	}
-	Form1->Chart5->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart5->LeftAxis->Title->Text = "Q, Н" ;
-
-}
-//---------------------------------------------------------------------------
-
-
-
-
-//---------------------------------------------------------------------------
-
 void __fastcall TForm1::Button10Click(TObject *Sender)
 {
-	Form1->TabControl1->ActiveTab = TabItem2;
+	Form1->TabControl1->ActiveTab = TabItem1;
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button12Click(TObject *Sender)
-{
-	Form1->TabControl1->ActiveTab = TabItem12;
-}
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::Button11Click(TObject *Sender)
@@ -645,118 +501,21 @@ void __fastcall TForm1::Button11Click(TObject *Sender)
 
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button16Click(TObject *Sender)
-{
-	double Ax[101], Ay[101];
-	Series1->Clear();
-	if(Form1->Chart2->Visible)
-		Form1->Chart2->Visible = false;
-	 else if(Form1->Chart3->Visible)
-	 Form1->Chart3->Visible = false;
-	  else if(Form1->Chart4->Visible)
-	 Form1->Chart4->Visible = false;
-	  else if(Form1->Chart5->Visible)
-	 Form1->Chart5->Visible = false;
-	  else if(Form1->Chart6->Visible)
-	 Form1->Chart6->Visible = false;
-	  else if(Form1->Chart7->Visible)
-	 Form1->Chart7->Visible = false;
-	 Form1->Chart1->Visible = true;
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[1][i]);
-		Series1->AddXY(Ax[i],Ay[i]);
-	}
-
-	Form1->Chart1->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart1->LeftAxis->Title->Text = "N, Н" ;
-//	Series1->Title = "График зависимости нормального усилия в поперечном сечении от длины балочного элемента";
-	//Series1->Title = "N(x/L)";
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button17Click(TObject *Sender)
-{
-	 Series2->Clear();
-if(Form1->Chart3->Visible)
-	Form1->Chart3->Visible = false;
-	 else if(Form1->Chart1->Visible)
-	 Form1->Chart1->Visible = false;
-	 else if(Form1->Chart4->Visible)
-	 Form1->Chart4->Visible = false;
-	  else if(Form1->Chart5->Visible)
-	 Form1->Chart5->Visible = false;
-	  else if(Form1->Chart6->Visible)
-	 Form1->Chart6->Visible = false;
-	  else if(Form1->Chart7->Visible)
-	 Form1->Chart7->Visible = false;
-	Form1->Chart2->Visible = true;
-	double Ax[101], Ay[101];
-
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[2][i]);
-		Series2->AddXY(Ax[i],Ay[i]);
-//
-	}
-	Form1->Chart2->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart2->LeftAxis->Title->Text = "M, Н*мм" ;
-
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button18Click(TObject *Sender)
-{
-
-	 Series3->Clear();
-	if(Form1->Chart1->Visible)
-	Form1->Chart1->Visible = false;
-	 else if(Form1->Chart2->Visible)
-	 Form1->Chart2->Visible = false;
-	 else if(Form1->Chart4->Visible)
-	 Form1->Chart4->Visible = false;
-	 else if(Form1->Chart5->Visible)
-	 Form1->Chart5->Visible = false;
-	 else if(Form1->Chart6->Visible)
-	 Form1->Chart6->Visible = false;
-	 else if(Form1->Chart7->Visible)
-	 Form1->Chart7->Visible = false;
-	 Form1->Chart3->Visible = true;
-	double Ax[101], Ay[101];
-
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[5][i]);
-		Series3->AddXY(Ax[i],Ay[i]);
-	}
-	Form1->Chart3->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart3->LeftAxis->Title->Text = "W, мм" ;
-
-}
-//---------------------------------------------------------------------------
-
-
-
-
-void __fastcall TForm1::ExcelInClick(TObject *Sender)
+ void __fastcall TForm1::ExcelInClick(TObject *Sender)
 {
 	int IRow,k;
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<9;k++){ Form1->StringGrid29->Cells[k][IRow] = ' '; }}
+	for (k=0;k<9;k++){fmOut->StringGrid29->Cells[k][IRow] = ' '; }}
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<9;k++){ Form1->StringGrid5->Cells[k][IRow] = ' '; }}
+	for (k=0;k<9;k++){ fmIn->StringGrid5->Cells[k][IRow] = ' '; }}
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<12;k++){ Form1->StringGrid6->Cells[k][IRow] = ' '; }}
+	for (k=0;k<12;k++){ fmIn->StringGrid6->Cells[k][IRow] = ' '; }}
 		for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<4;k++){ Form1->StringGrid30->Cells[k][IRow] = ' '; }}
+	for (k=0;k<4;k++){ fmOut->StringGrid30->Cells[k][IRow] = ' '; }}
 		for (IRow=0;IRow<101;IRow++){
 	for (k=0;k<4;k++){ Form1->StringGrid31->Cells[k][IRow] = ' '; }}
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<4;k++){ Form1->StringGrid32->Cells[k][IRow] = ' '; }}
+	for (k=0;k<4;k++){ fmOut->StringGrid32->Cells[k][IRow] = ' '; }}
 	med=false;
 	Form1->Edit2->Text = 1;
 	med=true;
@@ -766,7 +525,7 @@ void __fastcall TForm1::ExcelInClick(TObject *Sender)
 
 	if (OpenDialog1->Execute())
 	{
-
+	int ne, nu;
 	Variant ExcelApplicationl,ExcelWorkBookl,ExcelWorksheetl;
 
 	ExcelApplicationl = CreateOleObject("Excel.Application");
@@ -774,64 +533,64 @@ void __fastcall TForm1::ExcelInClick(TObject *Sender)
 																				  //ExcelApplicationl.Visible:=True;
 	ExcelWorksheetl = ExcelApplicationl.OlePropertyGet("ActiveSheet");
 
-	NU = StrToInt(ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2 ,1));
-	NE = StrToInt(ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2,2 ));
-	Form1->StringGrid4->Cells[0][0] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2 ,1);
-	Form1->StringGrid4->Cells[1][0] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2,2 );
-	Form1->StringGrid4->RowCount = 1;
-	  for (IRow=0;IRow<NU;IRow++)
+	nu = StrToInt(ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2 ,1));
+	ne = StrToInt(ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2,2 ));
+	fmIn->StringGrid4->Cells[0][0] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2 ,1);
+	fmIn->StringGrid4->Cells[1][0] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", 2,2 );
+	fmIn->StringGrid4->RowCount = 1;
+	  for (IRow=0;IRow<nu;IRow++)
 		{
 		  k = IRow + 5;
-		  Form1->StringGrid5->Cells[0][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", k ,1 );
-		  Form1->StringGrid5->Cells[1][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,2 );
-		  Form1->StringGrid5->Cells[2][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,3 );
-		  Form1->StringGrid5->Cells[3][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,4 );
-		  Form1->StringGrid5->Cells[4][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 5);
-		  Form1->StringGrid5->Cells[5][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 6);
-		  Form1->StringGrid5->Cells[6][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 7);
-		  Form1->StringGrid5->Cells[7][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 8);
-		  Form1->StringGrid5->Cells[8][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 9);
+		  fmIn->StringGrid5->Cells[0][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", k ,1 );
+		  fmIn->StringGrid5->Cells[1][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,2 );
+		  fmIn->StringGrid5->Cells[2][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,3 );
+		  fmIn->StringGrid5->Cells[3][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,4 );
+		  fmIn->StringGrid5->Cells[4][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 5);
+		  fmIn->StringGrid5->Cells[5][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 6);
+		  fmIn->StringGrid5->Cells[6][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 7);
+		  fmIn->StringGrid5->Cells[7][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 8);
+		  fmIn->StringGrid5->Cells[8][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 9);
 		}
 //	   Form1->StringGrid5->RowCount = NU;
 //	  RowCount:=NE+1;
-	  for (IRow=0;IRow<NE;IRow++)
+	  for (IRow=0;IRow<ne;IRow++)
 		{
-		  k = IRow + 5 + NU + 2;
-		  Form1->StringGrid6->Cells[0][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", k ,1 );
-		  Form1->StringGrid6->Cells[1][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,2 );
-		  Form1->StringGrid6->Cells[2][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,3 );
-		  Form1->StringGrid6->Cells[3][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,4 );
-		  Form1->StringGrid6->Cells[4][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 5);
-		  Form1->StringGrid6->Cells[5][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 6);
-		  Form1->StringGrid6->Cells[6][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 7);
-		  Form1->StringGrid6->Cells[7][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 8);
-		  Form1->StringGrid6->Cells[8][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 9);
-		  Form1->StringGrid6->Cells[9][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 10);
-		  Form1->StringGrid6->Cells[10][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 11);
-		  Form1->StringGrid6->Cells[11][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 12);
+		  k = IRow + 5 + nu + 2;
+		  fmIn->StringGrid6->Cells[0][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item", k ,1 );
+		  fmIn->StringGrid6->Cells[1][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,2 );
+		  fmIn->StringGrid6->Cells[2][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,3 );
+		  fmIn->StringGrid6->Cells[3][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k,4 );
+		  fmIn->StringGrid6->Cells[4][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 5);
+		  fmIn->StringGrid6->Cells[5][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 6);
+		  fmIn->StringGrid6->Cells[6][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 7);
+		  fmIn->StringGrid6->Cells[7][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 8);
+		  fmIn->StringGrid6->Cells[8][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 9);
+		  fmIn->StringGrid6->Cells[9][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 10);
+		  fmIn->StringGrid6->Cells[10][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 11);
+		  fmIn->StringGrid6->Cells[11][IRow] = ExcelWorksheetl.OlePropertyGet("Cells").OlePropertyGet("Item",  k, 12);
 		}
-//		Form1->StringGrid6->RowCount = NE;
-//  ExcelApplicationl.Workbooks.Close;
+//Form1->StringGrid6->RowCount = NE;
+//ExcelApplicationl.Workbooks.Close;
+  ExcelApplicationl.OlePropertySet("DisplayAlerts",false);
   ExcelApplicationl.OlePropertyGet("Application").OleProcedure("Quit");
   ExcelWorksheetl = Unassigned;
   ExcelApplicationl = Unassigned;
-  Form1->TabControl1->ActiveTab = TabItem2;
-  Form1->CalcItem->Enabled = True;
-							 }
-
-  }
+  Form1->TabControl1->ActiveTab = TabItem1;
+  fmIn->Show();
+	}
+}
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::TablOutClick(TObject *Sender)
 {
-  Form1->TabControl1->ActiveTab = TabItem10;
+  fmOut->Show();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::CalcItemClick(TObject *Sender)
 {
-	Getusel();
-	Getelem();
+//	Getusel();
+//	Getelem();
 
 	Getglobmtx();
 	Getglobvec();
@@ -906,19 +665,28 @@ void __fastcall TForm1::CalcItemClick(TObject *Sender)
 		}
 	}
 
+//	for(int i=0;i<NU;i++)
+//	{
+//		if(US[i].R.v(0)!=0) strengthX2Draw(i);
+//		if(US[i].R.v(1)!=0) strengthY2Draw(i);
+//		if(US[i].R.v(2)!=0) moment2Draw(i);
+//	}
+//	Form1->pb1->Visible = false;
+//	Form1->pb2->Visible = true;
+
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::GraphOutClick(TObject *Sender)
 {
-	Form1->Chart1->Visible = false;
-	Form1->Chart2->Visible = false;
-	Form1->Chart3->Visible = false;
-	Form1->Chart4->Visible = false;
-	Form1->Chart5->Visible = false;
-	Form1->Chart7->Visible = false;
-	Form1->Chart6->Visible = false;
-	Form1->TabControl1->ActiveTab = TabItem12;
+	fmOutD->Chart1->Visible = false;
+	fmOutD->Chart2->Visible = false;
+	fmOutD->Chart3->Visible = false;
+	fmOutD->Chart4->Visible = false;
+	fmOutD->Chart5->Visible = false;
+	fmOutD->Chart7->Visible = false;
+	fmOutD->Chart6->Visible = false;
+	fmOutD->Show();
 }
 //---------------------------------------------------------------------------
 
@@ -928,37 +696,32 @@ void __fastcall TForm1::ManualInClick(TObject *Sender)
 {
 	int IRow,k;
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<9;k++){ Form1->StringGrid29->Cells[k][IRow] = ' '; }}
+	for (k=0;k<9;k++){ fmOut->StringGrid29->Cells[k][IRow] = ' '; }}
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<9;k++){ Form1->StringGrid5->Cells[k][IRow] = ' '; }}
+	for (k=0;k<9;k++){ fmIn->StringGrid5->Cells[k][IRow] = ' '; }}
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<12;k++){ Form1->StringGrid6->Cells[k][IRow] = ' '; }}
-        	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<4;k++){ Form1->StringGrid30->Cells[k][IRow] = ' '; }}
+	for (k=0;k<12;k++){ fmIn->StringGrid6->Cells[k][IRow] = ' '; }}
+			for (IRow=0;IRow<101;IRow++){
+	for (k=0;k<4;k++){ fmOut->StringGrid30->Cells[k][IRow] = ' '; }}
 		for (IRow=0;IRow<101;IRow++){
 	for (k=0;k<4;k++){ Form1->StringGrid31->Cells[k][IRow] = ' '; }}
 	for (IRow=0;IRow<101;IRow++){
-	for (k=0;k<4;k++){ Form1->StringGrid32->Cells[k][IRow] = ' '; }}
+	for (k=0;k<4;k++){ fmOut->StringGrid32->Cells[k][IRow] = ' '; }}
 	med=false;
 	Form1->Edit2->Text = 1;
 	med=true;
-	MasterIn->Show();
-	Form1->TabControl1->ActiveTab = TabItem2;
+//	MasterIn->Show();
+	Form1->TabControl1->ActiveTab = TabItem1;
 	Form1->CalcItem->Enabled = True;
 }
 //---------------------------------------------------------------------------
 
-
-
 void __fastcall TForm1::RefClick(TObject *Sender)
 {
 //	URef->tcRef->ActiveTab = tb;
-//	URef->Show;
+	fmRef->Show();
 }
 //---------------------------------------------------------------------------
-
-
-
 
 void __fastcall TForm1::Button15Click(TObject *Sender)
 {
@@ -968,93 +731,63 @@ void __fastcall TForm1::Button15Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button19Click(TObject *Sender)
-{
-	LineSeries3->Clear();
-	if(Form1->Chart1->Visible)
-	Form1->Chart1->Visible = false;
-	 else if(Form1->Chart2->Visible)
-	 Form1->Chart2->Visible = false;
-	 else if(Form1->Chart3->Visible)
-	 Form1->Chart3->Visible = false;
-	 else if(Form1->Chart4->Visible)
-	 Form1->Chart4->Visible = false;
-	 else if(Form1->Chart5->Visible)
-	 Form1->Chart5->Visible = false;
-	 else if(Form1->Chart7->Visible)
-	 Form1->Chart7->Visible = false;
-	 Form1->Chart6->Visible = true;
-	double Ax[101], Ay[101];
-
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[6][i]);
-		LineSeries3->AddXY(Ax[i],Ay[i]);
-	}
-	Form1->Chart6->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart6->LeftAxis->Title->Text = "fi, рад" ;
-
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button20Click(TObject *Sender)
-{
-	LineSeries4->Clear();
-	Series4->Clear();
-	if(Form1->Chart1->Visible)
-	Form1->Chart1->Visible = false;
-	 else if(Form1->Chart2->Visible)
-	 Form1->Chart2->Visible = false;
-	 else if(Form1->Chart3->Visible)
-	 Form1->Chart3->Visible = false;
-	 else if(Form1->Chart4->Visible)
-	 Form1->Chart4->Visible = false;
-	 else if(Form1->Chart6->Visible)
-	 Form1->Chart6->Visible = false;
-	 else if(Form1->Chart5->Visible)
-	 Form1->Chart5->Visible = false;
-	 Form1->Chart7->Visible = true;
-	double Ax[101], Ay[101], By[101];
-
-	for(int i=0;i<101;i++)
-	{
-		Ax[i] =  EL[nEl-1].L*StrToFloat(Form1->StringGrid29->Cells[0][i]);
-		Ay[i] = StrToFloat(Form1->StringGrid29->Cells[7][i]);
-		By[i] = StrToFloat(Form1->StringGrid29->Cells[8][i]);
-		LineSeries4->AddXY(Ax[i],Ay[i]);
-		Series4->AddXY(Ax[i],By[i]);
-	}
-	Form1->Chart5->BottomAxis->Title->Text = "L, мм" ;
-	Form1->Chart5->LeftAxis->Title->Text = "Sigma, МПа" ;
-
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Edit2Change(TObject *Sender)
-{
-	med = true;
-	if (Form1->Edit2->Text == ' ')  {
-		med = false;
-	}
-		else
-	if (med) {
-
-//	double x;
-	nEl = StrToInt(Form1->Edit2->Text);
-	if (nEl>0&&nEl<=NE) {
-	Calc_ParametersNDS(nEl-1);
-	pNDS();}
-	else{
-	med = false;
-	  Form1->Edit2->Text = 1;}
-	}
-}
-//---------------------------------------------------------------------------
-
 void __fastcall TForm1::DrawClick(TObject *Sender)
 {
 	fmDraw->Show();
 }
 //---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::mItem1Click(TObject *Sender)
+{
+	Form1->pb2->Visible = false;
+	Form1->pb1->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::mItem2Click(TObject *Sender)
+{
+	Form1->pb2->Visible = true;
+	Form1->pb1->Visible = false;
+	for(int i=0;i<NU;i++)
+	{
+		if(US[i].R.v(0)!=0) strengthX2Draw(i);
+		if(US[i].R.v(1)!=0) strengthY2Draw(i);
+		if(US[i].R.v(2)!=0) moment2Draw(i);
+	}
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::СorrectionClick(TObject *Sender)
+{
+	fmIn->Show();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::pb2DblClick(TObject *Sender)
+{
+		Form1->pb2->Visible = true;
+	Form1->pb1->Visible = false;
+	for(int i=0;i<NU;i++)
+	{
+		if(US[i].R.v(0)!=0) strengthX2Draw(i);
+		if(US[i].R.v(1)!=0) strengthY2Draw(i);
+		if(US[i].R.v(2)!=0) moment2Draw(i);
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::pb1DblClick(TObject *Sender)
+{
+   Form1->pb2->Visible = false;
+	Form1->pb1->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+
 

@@ -1,54 +1,50 @@
-object Form1: TForm1
+﻿object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 503
+  Caption = 'CalcBeamStruct'
+  ClientHeight = 474
   ClientWidth = 941
+  Position = ScreenCenter
   StyleBook = StyleBook1
+  WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  ShowFullScreenIcon = True
   DesignerMasterStyle = 0
   object TabControl1: TTabControl
     Align = Client
+    Enabled = False
+    PopupMenu = PopupMenu1
     Size.Width = 941.000000000000000000
-    Size.Height = 503.000000000000000000
+    Size.Height = 474.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 9
+    TabIndex = 0
     TabOrder = 1
     TabPosition = None
     Sizes = (
       941s
-      503s
+      474s
       941s
-      503s
+      474s
       941s
-      503s
+      474s
       941s
-      503s
+      474s
       941s
-      503s
+      474s
       941s
-      503s
+      474s
       941s
-      503s
+      474s
       941s
-      503s
-      941s
-      503s
-      941s
-      503s
-      941s
-      503s
-      941s
-      503s
-      941s
-      503s)
+      474s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
+      PopupMenu = PopupMenu1
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -57,483 +53,50 @@ object Form1: TForm1
       Text = #1052#1072#1090#1088#1080#1094#1099
       ExplicitSize.cx = 69.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
-      object GridPanelLayout1: TGridPanelLayout
+      object pb: TPaintBox
         Align = Client
+        PopupMenu = PopupMenu1
         Size.Width = 941.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
-        ColumnCollection = <
-          item
-            Value = 50.000000000000000000
-          end
-          item
-            Value = 50.000000000000000000
-          end>
-        ControlCollection = <
-          item
-            Column = 0
-            Control = StringGrid1
-            Row = 0
-          end
-          item
-            Column = 1
-            Control = StringGrid2
-            Row = 0
-          end
-          item
-            Column = 0
-            Control = StringGrid3
-            Row = 1
-          end
-          item
-            Column = 1
-            Control = GridPanelLayout2
-            Row = 1
-          end>
-        RowCollection = <
-          item
-            Value = 49.951219512195120000
-          end
-          item
-            Value = 50.048780487804880000
-          end
-          item
-            SizeStyle = Auto
-          end>
-        object StringGrid1: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 464.500000000000000000
-          Size.Height = 245.254638671875000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 220.300000000000000000
-          object FloatColumn1: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn2: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn3: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn4: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn5: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn6: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
+      end
+      object pb1: TPaintBox
+        Align = Client
+        PopupMenu = PopupMenu1
+        Size.Width = 941.000000000000000000
+        Size.Height = 474.000000000000000000
+        Size.PlatformDefault = False
+        OnDblClick = pb1DblClick
+      end
+      object pb2: TPaintBox
+        Align = Client
+        PopupMenu = PopupMenu1
+        Size.Width = 941.000000000000000000
+        Size.Height = 474.000000000000000000
+        Size.PlatformDefault = False
+        OnDblClick = pb2DblClick
+      end
+      object PopupMenu1: TPopupMenu
+        Left = 584
+        Top = 32
+        object mItem1: TMenuItem
+          Text = #1042#1085#1077#1096#1085#1080#1077' '#1085#1072#1075#1088#1091#1078#1077#1085#1080#1103
+          OnClick = mItem1Click
         end
-        object StringGrid2: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 464.500000000000000000
-          Size.Height = 245.254638671875000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 220.300000000000000000
-          object FloatColumn7: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn8: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn9: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn10: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn11: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn12: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid3: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 464.500000000000000000
-          Size.Height = 245.745361328125000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 220.700000000000000000
-          object FloatColumn13: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn14: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn15: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn16: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn17: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn18: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object GridPanelLayout2: TGridPanelLayout
-          Align = Client
-          Size.Width = 470.500000000000000000
-          Size.Height = 251.745361328125000000
-          Size.PlatformDefault = False
-          TabOrder = 3
-          ColumnCollection = <
-            item
-              Value = 100.000000000000000000
-            end>
-          ControlCollection = <
-            item
-              Column = 0
-              Control = Button1
-              Row = 0
-            end
-            item
-              Column = 0
-              Control = Button2
-              Row = 1
-            end>
-          RowCollection = <
-            item
-              Value = 50.000000000000000000
-            end
-            item
-              Value = 50.000000000000000000
-            end
-            item
-              SizeStyle = Auto
-            end>
-          object Button1: TButton
-            Align = Client
-            StyledSettings = [Family, FontColor]
-            Margins.Left = 20.000000000000000000
-            Margins.Top = 20.000000000000000000
-            Margins.Right = 20.000000000000000000
-            Margins.Bottom = 20.000000000000000000
-            Size.Width = 430.500000000000000000
-            Size.Height = 85.872680664062500000
-            Size.PlatformDefault = False
-            TabOrder = 0
-            Text = #1055#1086#1089#1095#1080#1090#1072#1090#1100
-            TextSettings.Font.Size = 42.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          object Button2: TButton
-            Align = Client
-            StyledSettings = [Family, FontColor]
-            Margins.Left = 20.000000000000000000
-            Margins.Top = 20.000000000000000000
-            Margins.Right = 20.000000000000000000
-            Margins.Bottom = 20.000000000000000000
-            Size.Width = 430.500000000000000000
-            Size.Height = 85.872680664062500000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            Text = #1054#1090#1095#1080#1089#1090#1080#1090#1100
-            TextSettings.Font.Size = 42.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            OnClick = Button2Click
-          end
+        object mItem2: TMenuItem
+          Text = #1055#1088#1080#1074#1077#1076#1105#1085#1085#1099#1077' '#1085#1072#1075#1088#1091#1079#1082#1080
+          OnClick = mItem2Click
         end
       end
-    end
-    object TabItem2: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = #1042#1074#1086#1076
-      ExplicitSize.cx = 69.000000000000000000
-      ExplicitSize.cy = 26.000000000000000000
-      object ToolBar1: TToolBar
-        Align = Left
-        Size.Width = 65.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        Visible = False
-        object Edit1: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Top
-          TabOrder = 0
-          Text = '1'
-          TextSettings.HorzAlign = Center
-          Size.Width = 65.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-          Visible = False
-        end
-        object Button11: TButton
-          Align = Top
-          Size.Width = 65.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Text = #1054#1090#1095#1080#1090#1089#1090#1080#1090#1100
-          OnClick = Button11Click
-        end
-        object Button12: TButton
-          Align = Top
-          Enabled = False
-          Position.Y = 88.000000000000000000
-          Size.Width = 65.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Text = #1043#1088#1072#1092#1080#1082#1080
-          Visible = False
-          OnClick = Button12Click
-        end
-      end
-      object GridPanelLayout3: TGridPanelLayout
+      object ScrollBox1: TScrollBox
         Align = Client
         Size.Width = 941.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 1
-        ColumnCollection = <
-          item
-            Value = 100.000000000000000000
-          end>
-        ControlCollection = <
-          item
-            Column = 0
-            Control = StringGrid4
-            Row = 0
-          end
-          item
-            Column = 0
-            Control = StringGrid5
-            Row = 1
-          end
-          item
-            Column = 0
-            Control = StringGrid6
-            Row = 2
-          end>
-        RowCollection = <
-          item
-            Value = 20.000000000000000000
-          end
-          item
-            Value = 40.000000000000000000
-          end
-          item
-            Value = 40.000000000000000000
-          end
-          item
-            SizeStyle = Auto
-          end
-          item
-            SizeStyle = Auto
-          end>
-        object StringGrid4: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Size.Width = 941.000000000000000000
-          Size.Height = 100.599998474121100000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Viewport.Width = 921.000000000000000000
-          Viewport.Height = 75.600000000000000000
-          object FloatColumn19: TFloatColumn
-            Header = #1050#1086#1083'-'#1074#1086' '#1091#1079#1083#1086#1074
-            DecimalDigits = 0
-            ShowThousandSeparator = False
-          end
-          object FloatColumn20: TFloatColumn
-            Header = #1050#1086#1083'-'#1074#1086' '#1101#1083#1077#1084#1077#1085#1090#1086#1074
-            DecimalDigits = 0
-            ShowThousandSeparator = False
-            Size.Width = 110.000000000000000000
-          end
-        end
-        object StringGrid5: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Size.Width = 941.000000000000000000
-          Size.Height = 201.199981689453100000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          RowCount = 101
-          Viewport.Width = 921.000000000000000000
-          Viewport.Height = 176.200000000000000000
-          object FloatColumn21: TFloatColumn
-            Header = '   '#8470
-            DecimalDigits = 0
-            ShowThousandSeparator = False
-            Size.Width = 40.000000000000000000
-          end
-          object FloatColumn22: TFloatColumn
-            Header = '      x, '#1084#1084
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn25: TFloatColumn
-            Header = '     y, '#1084#1084
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn26: TFloatColumn
-            Header = '      Rx, '#1053
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn27: TFloatColumn
-            Header = '      Ry, '#1053
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn28: TFloatColumn
-            Header = 'M, '#1053'*'#1084#1084
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn29: TFloatColumn
-            Header = '        Cx'
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn30: TFloatColumn
-            Header = '          Cy'
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn31: TFloatColumn
-            Header = '         Ch'
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-        end
-        object StringGrid6: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Size.Width = 941.000000000000000000
-          Size.Height = 201.200012207031300000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          RowCount = 101
-          Viewport.Width = 921.000000000000000000
-          Viewport.Height = 176.200000000000000000
-          object FloatColumn23: TFloatColumn
-            Header = '    '#8470
-            DecimalDigits = 0
-            ShowThousandSeparator = False
-            Size.Width = 40.000000000000000000
-          end
-          object FloatColumn24: TFloatColumn
-            Header = '        i'
-            DecimalDigits = 0
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn32: TFloatColumn
-            Header = '         j'
-            DecimalDigits = 0
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn33: TFloatColumn
-            Header = '          E, '#1052#1087#1072
-            ShowThousandSeparator = False
-            Size.Width = 80.000000000000000000
-          end
-          object FloatColumn34: TFloatColumn
-            Header = '    S, '#1084#1084'2'
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn35: TFloatColumn
-            Header = '     I, '#1084#1084'4'
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn173: TFloatColumn
-            Header = '    W, '#1084#1084'3'
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn174: TFloatColumn
-            Header = 'SigmaT, '#1052#1055#1072
-            ShowThousandSeparator = False
-            Size.Width = 80.000000000000000000
-          end
-          object FloatColumn36: TFloatColumn
-            Header = '   p, '#1053'/'#1084#1084
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn37: TFloatColumn
-            Header = '   q, '#1053'/'#1084#1084
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn38: TFloatColumn
-            Header = 'Alfa, 1/'#1050
-            DecimalDigits = 6
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-          object FloatColumn39: TFloatColumn
-            Header = '          T, '#1050
-            ShowThousandSeparator = False
-            Size.Width = 60.000000000000000000
-          end
-        end
+        TabOrder = 3
+        DisableMouseWheel = True
+        Viewport.Width = 941.000000000000000000
+        Viewport.Height = 474.000000000000000000
       end
     end
     object TabItem3: TTabItem
@@ -552,7 +115,7 @@ object Form1: TForm1
       object ToolBar2: TToolBar
         Align = Left
         Size.Width = 89.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
       end
@@ -561,11 +124,11 @@ object Form1: TForm1
         CanFocus = True
         ClipChildren = True
         Size.Width = 852.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        Viewport.Width = 832.000000000000000000
-        Viewport.Height = 478.000000000000000000
+        Viewport.Width = 852.000000000000000000
+        Viewport.Height = 474.000000000000000000
         object FloatColumn40: TFloatColumn
           Header = #8470
           DecimalDigits = 0
@@ -631,14 +194,14 @@ object Form1: TForm1
       object ToolBar3: TToolBar
         Align = Left
         Size.Width = 81.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
       end
       object GridPanelLayout4: TGridPanelLayout
         Align = Client
         Size.Width = 860.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ColumnCollection = <
@@ -688,11 +251,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 424.000000000000000000
-          Size.Height = 245.254638671875000000
+          Size.Height = 230.768783569335900000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 404.000000000000000000
-          Viewport.Height = 220.300000000000000000
+          Viewport.Width = 424.000000000000000000
+          Viewport.Height = 230.800000000000000000
           object FloatColumn49: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -727,11 +290,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 424.000000000000000000
-          Size.Height = 245.254638671875000000
+          Size.Height = 230.768783569335900000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 404.000000000000000000
-          Viewport.Height = 220.300000000000000000
+          Viewport.Width = 424.000000000000000000
+          Viewport.Height = 230.800000000000000000
           object FloatColumn55: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -766,11 +329,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 424.000000000000000000
-          Size.Height = 245.745361328125000000
+          Size.Height = 231.231216430664100000
           Size.PlatformDefault = False
           TabOrder = 3
-          Viewport.Width = 404.000000000000000000
-          Viewport.Height = 220.700000000000000000
+          Viewport.Width = 424.000000000000000000
+          Viewport.Height = 231.200000000000000000
           object FloatColumn61: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -805,11 +368,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 424.000000000000000000
-          Size.Height = 245.745361328125000000
+          Size.Height = 231.231216430664100000
           Size.PlatformDefault = False
           TabOrder = 2
-          Viewport.Width = 404.000000000000000000
-          Viewport.Height = 220.700000000000000000
+          Viewport.Width = 424.000000000000000000
+          Viewport.Height = 231.200000000000000000
           object FloatColumn67: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -865,7 +428,7 @@ object Form1: TForm1
       object GridPanelLayout5: TGridPanelLayout
         Align = Client
         Size.Width = 941.000000000000000000
-        Size.Height = 462.000000000000000000
+        Size.Height = 433.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ColumnCollection = <
@@ -915,12 +478,12 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 464.500000000000000000
-          Size.Height = 224.774627685546900000
+          Size.Height = 210.288787841796900000
           Size.PlatformDefault = False
           TabOrder = 0
           Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 199.800000000000000000
+          Viewport.Width = 464.500000000000000000
+          Viewport.Height = 210.300000000000000000
           object FloatColumn73: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -955,11 +518,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 464.500000000000000000
-          Size.Height = 224.774627685546900000
+          Size.Height = 210.288787841796900000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 199.800000000000000000
+          Viewport.Width = 464.500000000000000000
+          Viewport.Height = 210.300000000000000000
           object FloatColumn79: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -994,11 +557,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 464.500000000000000000
-          Size.Height = 225.225372314453100000
+          Size.Height = 210.711212158203100000
           Size.PlatformDefault = False
           TabOrder = 3
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 200.200000000000000000
+          Viewport.Width = 464.500000000000000000
+          Viewport.Height = 210.700000000000000000
           object FloatColumn85: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -1033,11 +596,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 464.500000000000000000
-          Size.Height = 225.225372314453100000
+          Size.Height = 210.711212158203100000
           Size.PlatformDefault = False
           TabOrder = 2
-          Viewport.Width = 444.500000000000000000
-          Viewport.Height = 200.200000000000000000
+          Viewport.Width = 464.500000000000000000
+          Viewport.Height = 210.700000000000000000
           object FloatColumn91: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -1095,11 +658,11 @@ object Form1: TForm1
         CanFocus = True
         ClipChildren = True
         Size.Width = 941.000000000000000000
-        Size.Height = 462.000000000000000000
+        Size.Height = 433.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        Viewport.Width = 921.000000000000000000
-        Viewport.Height = 421.000000000000000000
+        Viewport.Width = 941.000000000000000000
+        Viewport.Height = 433.000000000000000000
         object FloatColumn97: TFloatColumn
           ShowThousandSeparator = False
         end
@@ -1148,14 +711,14 @@ object Form1: TForm1
       object ToolBar4: TToolBar
         Align = Left
         Size.Width = 89.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
       end
       object GridPanelLayout6: TGridPanelLayout
         Align = Client
         Size.Width = 852.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         ColumnCollection = <
@@ -1205,11 +768,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 420.000000000000000000
-          Size.Height = 245.254638671875000000
+          Size.Height = 230.768783569335900000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 400.000000000000000000
-          Viewport.Height = 220.300000000000000000
+          Viewport.Width = 420.000000000000000000
+          Viewport.Height = 230.800000000000000000
           object FloatColumn104: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -1244,11 +807,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 420.000000000000000000
-          Size.Height = 245.254638671875000000
+          Size.Height = 230.768783569335900000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 400.000000000000000000
-          Viewport.Height = 220.300000000000000000
+          Viewport.Width = 420.000000000000000000
+          Viewport.Height = 230.800000000000000000
           object FloatColumn110: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -1283,11 +846,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 420.000000000000000000
-          Size.Height = 245.745361328125000000
+          Size.Height = 231.231216430664100000
           Size.PlatformDefault = False
           TabOrder = 3
-          Viewport.Width = 400.000000000000000000
-          Viewport.Height = 220.700000000000000000
+          Viewport.Width = 420.000000000000000000
+          Viewport.Height = 231.200000000000000000
           object FloatColumn116: TFloatColumn
             DecimalDigits = 3
             ShowThousandSeparator = False
@@ -1323,11 +886,11 @@ object Form1: TForm1
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
           Size.Width = 420.000000000000000000
-          Size.Height = 245.745361328125000000
+          Size.Height = 231.231216430664100000
           Size.PlatformDefault = False
           TabOrder = 2
-          Viewport.Width = 400.000000000000000000
-          Viewport.Height = 220.700000000000000000
+          Viewport.Width = 420.000000000000000000
+          Viewport.Height = 231.200000000000000000
           object FloatColumn122: TFloatColumn
             ShowThousandSeparator = False
             Size.Width = 50.000000000000000000
@@ -1355,461 +918,11 @@ object Form1: TForm1
         end
       end
     end
-    object TabItem8: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TabItem8'
-      ExplicitSize.cx = 69.000000000000000000
-      ExplicitSize.cy = 26.000000000000000000
-      object ToolBar5: TToolBar
-        Align = Left
-        Size.Width = 73.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-      end
-      object GridPanelLayout7: TGridPanelLayout
-        Align = Client
-        Size.Width = 868.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        ColumnCollection = <
-          item
-            Value = 50.000000000000000000
-          end
-          item
-            Value = 50.000000000000000000
-          end>
-        ControlCollection = <
-          item
-            Column = 0
-            Control = StringGrid21
-            Row = 0
-          end
-          item
-            Column = 1
-            Control = StringGrid22
-            Row = 0
-          end
-          item
-            Column = 0
-            Control = StringGrid23
-            Row = 1
-          end
-          item
-            Column = 1
-            Control = StringGrid24
-            Row = 1
-          end>
-        RowCollection = <
-          item
-            Value = 49.951219512195120000
-          end
-          item
-            Value = 50.048780487804880000
-          end
-          item
-            SizeStyle = Auto
-          end>
-        object StringGrid21: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 428.000000000000000000
-          Size.Height = 245.254638671875000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Viewport.Width = 408.000000000000000000
-          Viewport.Height = 220.300000000000000000
-          object FloatColumn76: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn77: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn78: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn82: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn83: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn84: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid22: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 428.000000000000000000
-          Size.Height = 245.254638671875000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Viewport.Width = 408.000000000000000000
-          Viewport.Height = 220.300000000000000000
-          object FloatColumn88: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn89: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn90: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn94: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn95: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn96: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid23: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 428.000000000000000000
-          Size.Height = 245.745361328125000000
-          Size.PlatformDefault = False
-          TabOrder = 3
-          Viewport.Width = 408.000000000000000000
-          Viewport.Height = 220.700000000000000000
-          object FloatColumn128: TFloatColumn
-            DecimalDigits = 3
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn129: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn130: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn131: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn132: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn133: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid24: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 428.000000000000000000
-          Size.Height = 245.745361328125000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Viewport.Width = 408.000000000000000000
-          Viewport.Height = 220.700000000000000000
-          object FloatColumn134: TFloatColumn
-            DecimalDigits = 3
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn135: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn136: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn137: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn138: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn139: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-      end
-    end
-    object TabItem9: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TabItem9'
-      ExplicitSize.cx = 69.000000000000000000
-      ExplicitSize.cy = 26.000000000000000000
-      object ToolBar6: TToolBar
-        Align = Left
-        Size.Width = 65.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-      end
-      object GridPanelLayout8: TGridPanelLayout
-        Align = Client
-        Size.Width = 876.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        ColumnCollection = <
-          item
-            Value = 50.000000000000000000
-          end
-          item
-            Value = 50.000000000000000000
-          end>
-        ControlCollection = <
-          item
-            Column = 0
-            Control = StringGrid25
-            Row = 0
-          end
-          item
-            Column = 1
-            Control = StringGrid26
-            Row = 0
-          end
-          item
-            Column = 0
-            Control = StringGrid27
-            Row = 1
-          end
-          item
-            Column = 1
-            Control = StringGrid28
-            Row = 1
-          end>
-        RowCollection = <
-          item
-            Value = 49.951219512195120000
-          end
-          item
-            Value = 50.048780487804880000
-          end
-          item
-            SizeStyle = Auto
-          end>
-        object StringGrid25: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 432.000000000000000000
-          Size.Height = 245.254638671875000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Viewport.Width = 412.000000000000000000
-          Viewport.Height = 220.300000000000000000
-          object FloatColumn140: TFloatColumn
-            DecimalDigits = 5
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn141: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn142: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn143: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn144: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn145: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid26: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 432.000000000000000000
-          Size.Height = 245.254638671875000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Viewport.Width = 412.000000000000000000
-          Viewport.Height = 220.300000000000000000
-          object FloatColumn146: TFloatColumn
-            DecimalDigits = 5
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn147: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn148: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn149: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn150: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn151: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid27: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 432.000000000000000000
-          Size.Height = 245.745361328125000000
-          Size.PlatformDefault = False
-          TabOrder = 3
-          Viewport.Width = 412.000000000000000000
-          Viewport.Height = 220.700000000000000000
-          object FloatColumn152: TFloatColumn
-            DecimalDigits = 3
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn153: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn154: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn155: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn156: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn157: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-        object StringGrid28: TStringGrid
-          Align = Client
-          CanFocus = True
-          ClipChildren = True
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 432.000000000000000000
-          Size.Height = 245.745361328125000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Viewport.Width = 412.000000000000000000
-          Viewport.Height = 220.700000000000000000
-          object FloatColumn158: TFloatColumn
-            DecimalDigits = 3
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn159: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn160: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn161: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn162: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-          object FloatColumn163: TFloatColumn
-            ShowThousandSeparator = False
-            Size.Width = 50.000000000000000000
-          end
-        end
-      end
-    end
     object TabItem10: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -1819,17 +932,17 @@ object Form1: TForm1
       ExplicitSize.cx = 75.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       object ToolBar7: TToolBar
-        Align = Left
-        Size.Width = 81.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Width = 941.000000000000000000
+        Size.Height = 41.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object Button10: TButton
-          Align = Top
+          Align = Left
           StyledSettings = [Family, FontColor]
-          Size.Width = 81.000000000000000000
-          Size.Height = 64.000000000000000000
+          Size.Width = 49.000000000000000000
+          Size.Height = 41.000000000000000000
           Size.PlatformDefault = False
+          StyleLookup = 'priortoolbutton'
           TabOrder = 0
           Text = #1048#1089#1093#1086#1076#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
           TextSettings.Font.Size = 14.000000000000000000
@@ -1837,10 +950,10 @@ object Form1: TForm1
           OnClick = Button10Click
         end
         object Button15: TButton
-          Align = Top
-          Position.Y = 64.000000000000000000
-          Size.Width = 81.000000000000000000
-          Size.Height = 56.000000000000000000
+          Align = Left
+          Position.X = 49.000000000000000000
+          Size.Width = 72.000000000000000000
+          Size.Height = 41.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           Text = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1053#1044#1057
@@ -1848,10 +961,10 @@ object Form1: TForm1
           OnClick = Button15Click
         end
         object Button3: TButton
-          Align = Top
-          Position.Y = 120.000000000000000000
+          Align = Left
+          Position.X = 121.000000000000000000
           Size.Width = 81.000000000000000000
-          Size.Height = 65.000000000000000000
+          Size.Height = 41.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
           Text = #1055#1077#1088#1077#1084#1077#1097#1077#1085#1080#1103' '#1091#1079#1083#1086#1074
@@ -1859,8 +972,7 @@ object Form1: TForm1
           OnClick = Button3Click
         end
         object Button5: TButton
-          Align = Top
-          Position.Y = 185.000000000000000000
+          Align = Left
           Size.Width = 81.000000000000000000
           Size.Height = 64.000000000000000000
           Size.PlatformDefault = False
@@ -1871,10 +983,10 @@ object Form1: TForm1
           OnClick = Button5Click
         end
         object Button6: TButton
-          Align = Top
-          Position.Y = 185.000000000000000000
-          Size.Width = 81.000000000000000000
-          Size.Height = 56.000000000000000000
+          Align = Left
+          Position.X = 202.000000000000000000
+          Size.Width = 71.000000000000000000
+          Size.Height = 41.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 5
           Text = #1054#1094#1077#1085#1082#1072' '#1087#1088#1086#1095#1085#1086#1089#1090#1080
@@ -1882,57 +994,68 @@ object Form1: TForm1
           OnClick = Button6Click
         end
         object Label8: TLabel
-          Align = Top
+          Align = Left
           StyledSettings = [Family, Style, FontColor]
-          Position.Y = 241.000000000000000000
-          Size.Width = 81.000000000000000000
-          Size.Height = 32.000000000000000000
+          Margins.Left = 40.000000000000000000
+          Position.X = 313.000000000000000000
+          Size.Width = 96.000000000000000000
+          Size.Height = 41.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.HorzAlign = Center
-          Text = #8470' '#1069#1083#1077#1084#1077#1085#1090#1072
+          Text = #8470' '#1069#1083#1077#1084#1077#1085#1090#1072':'
           TabOrder = 6
         end
         object Edit2: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Top
+          Align = Left
           TabOrder = 7
           FilterChar = '1234567890'
           Text = '1'
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.HorzAlign = Center
-          Position.Y = 273.000000000000000000
-          Size.Width = 81.000000000000000000
-          Size.Height = 32.000000000000000000
+          Position.X = 409.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 41.000000000000000000
           Size.PlatformDefault = False
           StyledSettings = [Family, Style, FontColor]
-          OnChange = Edit2Change
+        end
+        object Button22: TButton
+          Align = Left
+          Margins.Left = 40.000000000000000000
+          Position.X = 497.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'pagecurltoolbutton'
+          TabOrder = 14
+          Text = 'Button21'
         end
       end
       object TabControl2: TTabControl
         Align = Client
-        Size.Width = 860.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Width = 941.000000000000000000
+        Size.Height = 433.000000000000000000
         Size.PlatformDefault = False
         TabIndex = 1
         TabOrder = 1
-        TabPosition = None
+        TabPosition = Top
         Sizes = (
-          860s
-          503s
-          860s
-          503s
-          860s
-          503s
-          860s
-          503s)
+          941s
+          409s
+          941s
+          409s
+          941s
+          409s
+          941s
+          409s)
         object TabItem14: TTabItem
           CustomIcon = <
             item
             end>
           IsSelected = False
-          Size.Width = 8.000000000000000000
-          Size.Height = 8.000000000000000000
+          Size.Width = 75.000000000000000000
+          Size.Height = 24.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
@@ -1943,13 +1066,13 @@ object Form1: TForm1
             Align = Client
             CanFocus = True
             ClipChildren = True
-            Size.Width = 860.000000000000000000
-            Size.Height = 454.000000000000000000
+            Size.Width = 941.000000000000000000
+            Size.Height = 360.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
             RowCount = 101
-            Viewport.Width = 840.000000000000000000
-            Viewport.Height = 429.000000000000000000
+            Viewport.Width = 941.000000000000000000
+            Viewport.Height = 360.000000000000000000
             object FloatColumn164: TFloatColumn
               Header = '     x/L'
               ShowThousandSeparator = False
@@ -1998,7 +1121,7 @@ object Form1: TForm1
           object Label4: TLabel
             Align = Top
             StyledSettings = [Family, FontColor]
-            Size.Width = 860.000000000000000000
+            Size.Width = 941.000000000000000000
             Size.Height = 49.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 26.000000000000000000
@@ -2013,8 +1136,8 @@ object Form1: TForm1
             item
             end>
           IsSelected = True
-          Size.Width = 8.000000000000000000
-          Size.Height = 8.000000000000000000
+          Size.Width = 75.000000000000000000
+          Size.Height = 24.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
@@ -2025,13 +1148,13 @@ object Form1: TForm1
             Align = Client
             CanFocus = True
             ClipChildren = True
-            Size.Width = 860.000000000000000000
-            Size.Height = 454.000000000000000000
+            Size.Width = 941.000000000000000000
+            Size.Height = 360.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
             RowCount = 101
-            Viewport.Width = 840.000000000000000000
-            Viewport.Height = 429.000000000000000000
+            Viewport.Width = 941.000000000000000000
+            Viewport.Height = 360.000000000000000000
             object FloatColumn175: TFloatColumn
               Header = #8470' '#1059#1079#1083#1072
               DecimalDigits = 0
@@ -2057,7 +1180,7 @@ object Form1: TForm1
           object Label5: TLabel
             Align = Top
             StyledSettings = [Family, FontColor]
-            Size.Width = 860.000000000000000000
+            Size.Width = 941.000000000000000000
             Size.Height = 49.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 26.000000000000000000
@@ -2072,8 +1195,8 @@ object Form1: TForm1
             item
             end>
           IsSelected = False
-          Size.Width = 8.000000000000000000
-          Size.Height = 8.000000000000000000
+          Size.Width = 75.000000000000000000
+          Size.Height = 24.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
@@ -2083,7 +1206,7 @@ object Form1: TForm1
           object Label6: TLabel
             Align = Top
             StyledSettings = [Family, FontColor]
-            Size.Width = 860.000000000000000000
+            Size.Width = 941.000000000000000000
             Size.Height = 49.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 26.000000000000000000
@@ -2096,13 +1219,13 @@ object Form1: TForm1
             Align = Client
             CanFocus = True
             ClipChildren = True
-            Size.Width = 860.000000000000000000
-            Size.Height = 454.000000000000000000
+            Size.Width = 941.000000000000000000
+            Size.Height = 360.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             RowCount = 101
-            Viewport.Width = 840.000000000000000000
-            Viewport.Height = 429.000000000000000000
+            Viewport.Width = 941.000000000000000000
+            Viewport.Height = 360.000000000000000000
             object FloatColumn179: TFloatColumn
               Header = #8470' '#1091#1079#1083#1072
               DecimalDigits = 0
@@ -2128,8 +1251,8 @@ object Form1: TForm1
             item
             end>
           IsSelected = False
-          Size.Width = 8.000000000000000000
-          Size.Height = 8.000000000000000000
+          Size.Width = 75.000000000000000000
+          Size.Height = 24.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
@@ -2139,7 +1262,7 @@ object Form1: TForm1
           object Label7: TLabel
             Align = Top
             StyledSettings = [Family, FontColor]
-            Size.Width = 860.000000000000000000
+            Size.Width = 941.000000000000000000
             Size.Height = 49.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 26.000000000000000000
@@ -2152,13 +1275,13 @@ object Form1: TForm1
             Align = Client
             CanFocus = True
             ClipChildren = True
-            Size.Width = 860.000000000000000000
-            Size.Height = 454.000000000000000000
+            Size.Width = 941.000000000000000000
+            Size.Height = 360.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             RowCount = 101
-            Viewport.Width = 840.000000000000000000
-            Viewport.Height = 429.000000000000000000
+            Viewport.Width = 941.000000000000000000
+            Viewport.Height = 360.000000000000000000
             object FloatColumn183: TFloatColumn
               Header = #8470' '#1101#1083#1077#1084#1077#1085#1090#1072
               DecimalDigits = 0
@@ -2202,503 +1325,40 @@ object Form1: TForm1
       object ImageViewer1: TImageViewer
         Align = Client
         Size.Width = 941.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 474.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         BitmapScale = 0.519999682903289800
-        Viewport.Width = 937.000000000000000000
-        Viewport.Height = 499.000000000000000000
+        Viewport.Width = 941.000000000000000000
+        Viewport.Height = 474.000000000000000000
+        object Label9: TLabel
+          Align = Bottom
+          StyledSettings = [FontColor]
+          Position.Y = 428.000000000000000000
+          Size.Width = 937.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Tahoma'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.HorzAlign = Trailing
+          Text = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082': '#1052#1072#1082#1089#1080#1084#1086#1074' '#1040'.'#1057'.'
+          TabOrder = 2
+        end
       end
       object Label3: TLabel
         Align = Center
+        Anchors = [akLeft, akTop, akRight, akBottom]
         StyledSettings = [Family]
-        Size.Width = 434.000000000000000000
-        Size.Height = 174.000000000000000000
+        Size.Width = 741.000000000000000000
+        Size.Height = 274.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 48.000000000000000000
+        TextSettings.Font.Size = 60.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = xFF454F60
         TextSettings.HorzAlign = Center
         Text = #1056#1072#1089#1095#1105#1090' '#1073#1072#1083#1086#1095#1085#1099#1093' '#1082#1086#1085#1089#1090#1088#1091#1082#1094#1080#1081
         TabOrder = 1
-      end
-    end
-    object TabItem12: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TabItem12'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object ToolBar8: TToolBar
-        Align = Left
-        Size.Width = 105.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object Button13: TButton
-          Align = Top
-          StyledSettings = [Family, FontColor]
-          Size.Width = 105.000000000000000000
-          Size.Height = 49.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Text = #1048#1089#1093#1086#1076#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button10Click
-        end
-        object Button14: TButton
-          Align = Top
-          Position.Y = 64.000000000000000000
-          Size.Width = 73.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Text = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099
-          Visible = False
-          OnClick = Button11Click
-        end
-        object Button16: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 49.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 3
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' N(x/L)'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button16Click
-        end
-        object Button17: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 105.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 4
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' M(x/L)'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button17Click
-        end
-        object Button18: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 161.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 5
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' W(x/L)'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button18Click
-        end
-        object Button7: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 217.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 56.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 6
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' U(x/L)'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button7Click
-        end
-        object Button8: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 273.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 64.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 7
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' Q(x/L)'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button8Click
-        end
-        object Button19: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 337.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 64.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 8
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' fi(x/L)'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button19Click
-        end
-        object Button20: TButton
-          Align = Top
-          StyledSettings = [Family, Style, FontColor]
-          Position.Y = 401.000000000000000000
-          Size.Width = 105.000000000000000000
-          Size.Height = 64.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 9
-          Text = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.WordWrap = True
-          OnClick = Button20Click
-        end
-      end
-      object Chart1: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Alignment = laBottom
-        Legend.LegendStyle = lsSeries
-        Legend.TextStyle = ltsXAndText
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = xFF040404
-        Title.Font.Brush.Color = xFF040404
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1085#1086#1088#1084#1072#1083#1100#1085#1086#1075#1086' '#1091#1089#1080#1083#1080#1103' '#1074' '#1087#1086#1087#1077#1088#1077#1095#1085#1086#1084' '#1089#1077#1095#1077#1085#1080#1080' '#1086#1090' '#1076#1083 +
-            #1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086#1075#1086' '#1101#1083#1077#1084#1077#1085#1090#1072)
-        Title.TextAlignment = taLeftJustify
-        Title.Transparent = False
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 1
-        Visible = False
-        Size.Width = 818.000000000000000000
-        Size.Height = 456.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object Series1: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFF6C79F1
-          OutLine.Fill.Color = xFF6C79F1
-          OutLine.Visible = True
-          Pointer.InflateMargins = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-      object Chart3: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = claBlack
-        Title.Font.Brush.Color = claBlack
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1087#1088#1086#1075#1080#1073#1072' '#1074' '#1087#1086#1087#1077#1088#1077#1095#1085#1086#1084' '#1089#1077#1095#1077#1085#1080#1080' '#1086#1090' '#1076#1083#1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086 +
-            #1075#1086' '#1101#1083#1077#1084#1077#1085#1090#1072)
-        Title.Transparent = False
-        Panning.MouseWheel = pmwNone
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 6
-        Visible = False
-        Size.Width = 836.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object Series3: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFF1F80B0
-          OutLine.Fill.Color = xFF1F80B0
-          OutLine.Visible = True
-          Pointer.Draw3D = False
-          Pointer.InflateMargins = True
-          Pointer.Shadow.Visible = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-      object Chart2: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = claBlack
-        Title.Font.Brush.Color = claBlack
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1080#1079#1075#1080#1073#1072#1102#1097#1077#1075#1086' '#1084#1086#1084#1077#1085#1090#1072' '#1074' '#1087#1086#1087#1077#1088#1077#1095#1085#1086#1084' '#1089#1077#1095#1077#1085#1080#1080' '#1086#1090' '#1076 +
-            #1083#1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086#1075#1086' '#1101#1083#1077#1084#1077#1085#1090#1072)
-        Title.Transparent = False
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 7
-        Visible = False
-        Size.Width = 818.000000000000000000
-        Size.Height = 456.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object Series2: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFF2D4D96
-          OutLine.Width = 1.162790656089783000
-          OutLine.Fill.Color = xFF2D4D96
-          OutLine.Visible = True
-          Pointer.InflateMargins = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-      object Chart4: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = claBlack
-        Title.Font.Brush.Color = claBlack
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1086#1089#1077#1074#1099#1093' '#1087#1077#1088#1077#1084#1077#1097#1077#1085#1080#1081' '#1089#1077#1095#1077#1085#1080#1081' '#1086#1090' '#1076#1083#1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086#1075#1086 +
-            ' '#1101#1083#1077#1084#1077#1085#1090#1072)
-        Title.Transparent = False
-        Panning.MouseWheel = pmwNone
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 5
-        Visible = False
-        Size.Width = 836.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object LineSeries1: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFF1F80B0
-          OutLine.Fill.Color = xFF1F80B0
-          OutLine.Visible = True
-          Pointer.Draw3D = False
-          Pointer.InflateMargins = True
-          Pointer.Shadow.Visible = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-      object Chart5: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = claBlack
-        Title.Font.Brush.Color = claBlack
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1087#1086#1087#1077#1088#1077#1095#1085#1099#1093' '#1091#1089#1080#1083#1080#1081' '#1074' '#1089#1077#1095#1077#1085#1080#1103#1093' '#1086#1090' '#1076#1083#1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086 +
-            #1075#1086' '#1101#1083#1077#1084#1077#1085#1090#1072)
-        Title.Transparent = False
-        Panning.MouseWheel = pmwNone
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 4
-        Visible = False
-        Size.Width = 836.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object LineSeries2: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFF1F80B0
-          OutLine.Fill.Color = xFF1F80B0
-          OutLine.Visible = True
-          Pointer.Draw3D = False
-          Pointer.InflateMargins = True
-          Pointer.Shadow.Visible = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-      object Chart6: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = claBlack
-        Title.Font.Brush.Color = claBlack
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1091#1075#1083#1086#1074' '#1087#1086#1074#1086#1088#1086#1090#1072' '#1089#1077#1095#1077#1085#1080#1081' '#1086#1090' '#1076#1083#1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086#1075#1086' '#1101#1083#1077 +
-            #1084#1077#1085#1090#1072)
-        Title.Transparent = False
-        Panning.MouseWheel = pmwNone
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 3
-        Visible = False
-        Size.Width = 836.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object LineSeries3: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFF1F80B0
-          OutLine.Fill.Color = xFF1F80B0
-          OutLine.Visible = True
-          Pointer.Draw3D = False
-          Pointer.InflateMargins = True
-          Pointer.Shadow.Visible = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-      object Chart7: TChart
-        Foot.Font.StyleExt = {00040000000200000004000000}
-        Legend.Title.Font.StyleExt = {00070000000000000004000000}
-        Legend.Visible = False
-        SubFoot.Font.StyleExt = {00040000000200000004000000}
-        Title.Font.Size = 16.506023406982420000
-        Title.Font.Color = claBlack
-        Title.Font.Brush.Color = claBlack
-        Title.Text.Strings = (
-          
-            #1043#1088#1072#1092#1080#1082' '#1079#1072#1074#1080#1089#1080#1084#1086#1089#1090#1080' '#1085#1072#1087#1088#1103#1078#1077#1085#1080#1081' '#1074' '#1089#1077#1095#1077#1085#1080#1103#1093' '#1086#1090' '#1076#1083#1080#1085#1099' '#1073#1072#1083#1086#1095#1085#1086#1075#1086' '#1101#1083#1077#1084 +
-            #1077#1085#1090#1072)
-        Title.Transparent = False
-        Panning.MouseWheel = pmwNone
-        View3D = False
-        View3DWalls = False
-        Zoom.Brush.Kind = None
-        Zoom.Pen.Fill.Color = claSilver
-        Align = Client
-        TabOrder = 2
-        Visible = False
-        Size.Width = 836.000000000000000000
-        Size.Height = 503.000000000000000000
-        Size.PlatformDefault = False
-        ColorPaletteIndex = 13
-        object LineSeries4: TLineSeries
-          SeriesColor = claBlack
-          Brush.BackColor = x00FFFFFF
-          OutLine.Color = xFFF26666
-          OutLine.Fill.Color = xFFF26666
-          OutLine.Visible = True
-          Pointer.Draw3D = False
-          Pointer.InflateMargins = True
-          Pointer.Shadow.Visible = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-        object Series4: TLineSeries
-          SeriesColor = xFF37EF54
-          Brush.BackColor = x00FFFFFF
-          LinePen.Width = 3.488372087478638000
-          Pointer.InflateMargins = True
-          Pointer.Style = psRectangle
-          XValues.Name = 'X'
-          XValues.Order = loNone
-          YValues.Name = 'Y'
-          YValues.Order = loNone
-        end
-      end
-    end
-    object TabItem13: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TabItem13'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object Button4: TButton
-        Position.X = 64.000000000000000000
-        Position.Y = 32.000000000000000000
-        TabOrder = 0
-        Text = 'Button4'
-      end
-      object Image2: TImage
-        MultiResBitmap = <
-          item
-          end>
-        Position.X = 64.000000000000000000
-        Position.Y = 80.000000000000000000
-        Size.Width = 33.000000000000000000
-        Size.Height = 209.000000000000000000
-        Size.PlatformDefault = False
-      end
-      object StringGrid33: TStringGrid
-        CanFocus = True
-        ClipChildren = True
-        Position.X = 160.000000000000000000
-        Position.Y = 32.000000000000000000
-        Size.Width = 593.000000000000000000
-        Size.Height = 345.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        Viewport.Width = 573.000000000000000000
-        Viewport.Height = 320.000000000000000000
-        object FloatColumn187: TFloatColumn
-          DecimalDigits = 4
-          ShowThousandSeparator = False
-        end
       end
     end
   end
@@ -35066,7 +33726,13 @@ object Form1: TForm1
       object ManualIn: TMenuItem
         Locked = True
         Text = #1056#1091#1095#1085#1086#1081' '#1074#1074#1086#1076
+        Visible = False
         OnClick = ManualInClick
+      end
+      object Сorrection: TMenuItem
+        Locked = True
+        Text = #1050#1086#1088#1088#1077#1082#1090#1080#1088#1086#1074#1082#1072
+        OnClick = СorrectionClick
       end
     end
     object CalcItem: TMenuItem
@@ -35079,12 +33745,12 @@ object Form1: TForm1
       Text = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099
       object TablOut: TMenuItem
         Locked = True
-        Text = #1058#1072#1073#1083#1080#1094#1072
+        Text = #1058#1072#1073#1083#1080#1094#1099
         OnClick = TablOutClick
       end
       object GraphOut: TMenuItem
         Locked = True
-        Text = #1043#1088#1072#1092#1080#1082
+        Text = #1043#1088#1072#1092#1080#1082#1080
         OnClick = GraphOutClick
       end
     end
@@ -35095,6 +33761,7 @@ object Form1: TForm1
     object Draw: TMenuItem
       Touch.InteractiveGestures = [TwoFingerTap]
       Text = #1054#1090#1088#1080#1089#1086#1074#1082#1072
+      Visible = False
       OnClick = DrawClick
     end
   end

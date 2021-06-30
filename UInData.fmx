@@ -1,0 +1,235 @@
+object fmIn: TfmIn
+  Left = 0
+  Top = 0
+  Caption = #1048#1089#1093#1086#1076#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
+  ClientHeight = 480
+  ClientWidth = 803
+  Position = ScreenCenter
+  StyleBook = Form1.StyleBook1
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GridPanelLayout3: TGridPanelLayout
+    Align = Client
+    Size.Width = 803.000000000000000000
+    Size.Height = 440.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    ColumnCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = StringGrid4
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = StringGrid5
+        Row = 1
+      end
+      item
+        Column = 0
+        Control = StringGrid6
+        Row = 2
+      end>
+    RowCollection = <
+      item
+        SizeStyle = Absolute
+        Value = 60.000000000000000000
+      end
+      item
+        Value = 50.000000000000000000
+      end
+      item
+        Value = 50.000000000000000000
+      end
+      item
+        SizeStyle = Auto
+      end
+      item
+        SizeStyle = Auto
+      end>
+    object StringGrid4: TStringGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 803.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Viewport.Width = 803.000000000000000000
+      Viewport.Height = 60.000000000000000000
+      object FloatColumn19: TFloatColumn
+        Header = #1050#1086#1083'-'#1074#1086' '#1091#1079#1083#1086#1074
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+      end
+      object FloatColumn20: TFloatColumn
+        Header = #1050#1086#1083'-'#1074#1086' '#1101#1083#1077#1084#1077#1085#1090#1086#1074
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 110.000000000000000000
+      end
+    end
+    object StringGrid5: TStringGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 803.000000000000000000
+      Size.Height = 190.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      RowCount = 101
+      Viewport.Width = 803.000000000000000000
+      Viewport.Height = 190.000000000000000000
+      object FloatColumn21: TFloatColumn
+        Header = '   '#8470
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 40.000000000000000000
+      end
+      object FloatColumn22: TFloatColumn
+        Header = '      x, '#1084#1084
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn25: TFloatColumn
+        Header = '     y, '#1084#1084
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn26: TFloatColumn
+        Header = '      Rx, '#1053
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn27: TFloatColumn
+        Header = '      Ry, '#1053
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn28: TFloatColumn
+        Header = 'M, '#1053'*'#1084#1084
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn29: TFloatColumn
+        Header = '        Cx'
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn30: TFloatColumn
+        Header = '          Cy'
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn31: TFloatColumn
+        Header = '         Ch'
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+    end
+    object StringGrid6: TStringGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 803.000000000000000000
+      Size.Height = 190.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      RowCount = 101
+      Viewport.Width = 803.000000000000000000
+      Viewport.Height = 190.000000000000000000
+      object FloatColumn23: TFloatColumn
+        Header = '    '#8470
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 40.000000000000000000
+      end
+      object FloatColumn24: TFloatColumn
+        Header = '        i'
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 50.000000000000000000
+      end
+      object FloatColumn32: TFloatColumn
+        Header = '         j'
+        DecimalDigits = 0
+        ShowThousandSeparator = False
+        Size.Width = 50.000000000000000000
+      end
+      object FloatColumn33: TFloatColumn
+        Header = '          E, '#1052#1087#1072
+        ShowThousandSeparator = False
+        Size.Width = 80.000000000000000000
+      end
+      object FloatColumn34: TFloatColumn
+        Header = '    S, '#1084#1084'2'
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn35: TFloatColumn
+        Header = '     I, '#1084#1084'4'
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn173: TFloatColumn
+        Header = '    W, '#1084#1084'3'
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn174: TFloatColumn
+        Header = 'SigmaT, '#1052#1055#1072
+        ShowThousandSeparator = False
+        Size.Width = 80.000000000000000000
+      end
+      object FloatColumn36: TFloatColumn
+        Header = '   p, '#1053'/'#1084#1084
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn37: TFloatColumn
+        Header = '   q, '#1053'/'#1084#1084
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn38: TFloatColumn
+        Header = 'Alfa, 1/'#1050
+        DecimalDigits = 6
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+      object FloatColumn39: TFloatColumn
+        Header = '          T, '#1050
+        ShowThousandSeparator = False
+        Size.Width = 60.000000000000000000
+      end
+    end
+  end
+  object ToolBar1: TToolBar
+    Align = Bottom
+    Position.Y = 440.000000000000000000
+    Size.Width = 803.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Button1: TButton
+      Align = Center
+      StyledSettings = [Family, Style, FontColor]
+      Size.Width = 203.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1055#1086#1076#1090#1074#1077#1088#1076#1080#1090#1100
+      TextSettings.Font.Size = 20.000000000000000000
+      OnClick = Button1Click
+    end
+  end
+end

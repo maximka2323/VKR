@@ -1,0 +1,534 @@
+object fmOutD: TfmOutD
+  Left = 0
+  Top = 0
+  Caption = #1043#1088#1072#1092#1080#1082#1080
+  ClientHeight = 480
+  ClientWidth = 763
+  Position = ScreenCenter
+  StyleBook = Form1.StyleBook1
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Alignment = laBottom
+    Legend.LegendStyle = lsSeries
+    Legend.TextStyle = ltsXAndText
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = xFF040404
+    Title.Font.Brush.Color = xFF040404
+    Title.Text.Strings = (
+      #1053#1086#1088#1084#1072#1083#1100#1085#1099#1077' '#1091#1089#1080#1083#1080#1103' '#1074' '#1087#1086#1087#1077#1088#1077#1095#1085#1086#1084' '#1089#1077#1095#1077#1085#1080#1080' ')
+    Title.TextAlignment = taLeftJustify
+    Title.Transparent = False
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 1
+    Visible = False
+    Size.Width = 818.000000000000000000
+    Size.Height = 456.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series1: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFF6C79F1
+      OutLine.Fill.Color = xFF6C79F1
+      OutLine.Visible = True
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart2: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Text.Strings = (
+      #1048#1079#1075#1080#1073#1072#1102#1097#1080#1081' '#1084#1086#1084#1077#1085#1090' '#1074' '#1087#1086#1087#1077#1088#1077#1095#1085#1086#1084' '#1089#1077#1095#1077#1085#1080#1080)
+    Title.Transparent = False
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 7
+    Visible = False
+    Size.Width = 818.000000000000000000
+    Size.Height = 456.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series2: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFF2D4D96
+      OutLine.Width = 1.162790656089783000
+      OutLine.Fill.Color = xFF2D4D96
+      OutLine.Visible = True
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart3: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Text.Strings = (
+      #1055#1088#1086#1075#1080#1073' '#1074' '#1087#1086#1087#1077#1088#1077#1095#1085#1086#1084' '#1089#1077#1095#1077#1085#1080#1080' ')
+    Title.Transparent = False
+    Panning.MouseWheel = pmwNone
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 6
+    Visible = False
+    Size.Width = 836.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series3: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFF1F80B0
+      OutLine.Fill.Color = xFF1F80B0
+      OutLine.Visible = True
+      Pointer.Draw3D = False
+      Pointer.InflateMargins = True
+      Pointer.Shadow.Visible = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart4: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Text.Strings = (
+      #1054#1089#1077#1074#1099#1077' '#1087#1077#1088#1077#1084#1077#1097#1077#1085#1080#1103' '#1089#1077#1095#1077#1085#1080#1081' ')
+    Title.Transparent = False
+    Panning.MouseWheel = pmwNone
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 5
+    Visible = False
+    Size.Width = 836.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object LineSeries1: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFF1F80B0
+      OutLine.Fill.Color = xFF1F80B0
+      OutLine.Visible = True
+      Pointer.Draw3D = False
+      Pointer.InflateMargins = True
+      Pointer.Shadow.Visible = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart5: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Text.Strings = (
+      #1055#1086#1087#1077#1088#1077#1095#1085#1099#1077' '#1091#1089#1080#1083#1080#1103' '#1074' '#1089#1077#1095#1077#1085#1080#1103#1093)
+    Title.Transparent = False
+    Panning.MouseWheel = pmwNone
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 4
+    Visible = False
+    Size.Width = 836.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object LineSeries2: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFF1F80B0
+      OutLine.Fill.Color = xFF1F80B0
+      OutLine.Visible = True
+      Pointer.Draw3D = False
+      Pointer.InflateMargins = True
+      Pointer.Shadow.Visible = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart6: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Text.Strings = (
+      #1059#1075#1083#1099' '#1087#1086#1074#1086#1088#1086#1090#1072' '#1089#1077#1095#1077#1085#1080#1081' ')
+    Title.Transparent = False
+    Panning.MouseWheel = pmwNone
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 3
+    Visible = False
+    Size.Width = 836.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object LineSeries3: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFF1F80B0
+      OutLine.Fill.Color = xFF1F80B0
+      OutLine.Visible = True
+      Pointer.Draw3D = False
+      Pointer.InflateMargins = True
+      Pointer.Shadow.Visible = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart7: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Font.Size = 16.506023406982420000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Text.Strings = (
+      #1053#1072#1087#1088#1103#1078#1077#1085#1080#1103' '#1074' '#1089#1077#1095#1077#1085#1080#1103#1093' ')
+    Title.Transparent = False
+    Panning.MouseWheel = pmwNone
+    View3D = False
+    View3DWalls = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 2
+    Visible = False
+    Size.Width = 836.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object LineSeries4: TLineSeries
+      SeriesColor = claBlack
+      Brush.BackColor = x00FFFFFF
+      OutLine.Color = xFFF26666
+      OutLine.Fill.Color = xFFF26666
+      OutLine.Visible = True
+      Pointer.Draw3D = False
+      Pointer.InflateMargins = True
+      Pointer.Shadow.Visible = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+    object Series4: TLineSeries
+      SeriesColor = xFF37EF54
+      Brush.BackColor = x00FFFFFF
+      LinePen.Width = 3.488372087478638000
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Chart8: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.AutoSize = False
+    Title.Font.Size = 14.120481491088870000
+    Title.Font.Color = claBlack
+    Title.Font.Brush.Color = claBlack
+    Title.Font.Emboss.Color = xFFD21B1B
+    Title.Font.Emboss.HorizSize = 22
+    Title.Font.Emboss.VertSize = 22
+    Title.Font.OutLine.Color = x00FFFFFF
+    Title.Font.OutLine.Fill.Color = x00FFFFFF
+    Title.Text.Strings = (
+      #1050#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090#1099' '#1079#1072#1087#1072#1089#1072' '#1087#1088#1086#1095#1085#1086#1089#1090#1080' '#1073#1072#1083#1086#1095#1085#1099#1093' '#1101#1083#1077#1084#1077#1085#1090#1086#1074)
+    Title.Transparent = False
+    Title.AdjustFrame = False
+    BottomAxis.Automatic = False
+    BottomAxis.AutomaticMinimum = False
+    BottomAxis.Minimum = 1.000000000000000000
+    BottomAxis.MinimumOffset = 60
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 8
+    Visible = False
+    Size.Width = 836.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series5: TBarSeries
+      Marks.Emboss.Clip = True
+      Marks.Shadow.Clip = True
+      Marks.Clip = True
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+      Data = {
+        000600000000000000003888400000000000C488400000000000B08840000000
+        0000BC8B400000000000488C4000000000007C8F40}
+    end
+  end
+  object ToolBar8: TToolBar
+    Size.Width = 763.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Button13: TButton
+      Align = Left
+      StyledSettings = [Family, FontColor]
+      Size.Width = 49.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'priortoolbutton'
+      TabOrder = 0
+      Text = #1048#1089#1093#1086#1076#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      Visible = False
+    end
+    object Button14: TButton
+      Align = Top
+      Position.Y = 64.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099
+      Visible = False
+    end
+    object Button16: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 96.000000000000000000
+      Size.Width = 40.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'N(x/L)'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button16Click
+    end
+    object Button17: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 48.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'M(x/L)'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button17Click
+    end
+    object Button18: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Size.Width = 48.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'W(x/L)'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button18Click
+    end
+    object Button7: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 136.000000000000000000
+      Size.Width = 40.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = 'U(x/L)'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button7Click
+    end
+    object Button8: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 176.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      Text = 'Q(x/L)'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button8Click
+    end
+    object Button19: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 224.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'fi(x/L)'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button19Click
+    end
+    object Button20: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 272.000000000000000000
+      Size.Width = 56.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 9
+      Text = 'Max'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button20Click
+    end
+    object Button9: TButton
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 328.000000000000000000
+      Size.Width = 56.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 10
+      Text = 'n'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = Button9Click
+    end
+    object Label9: TLabel
+      Align = Left
+      StyledSettings = [Family, Style, FontColor]
+      Margins.Left = 40.000000000000000000
+      Position.X = 424.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = #8470' '#1069#1083#1077#1084#1077#1085#1090#1072':'
+      TabOrder = 12
+    end
+    object Edit3: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Left
+      TabOrder = 13
+      FilterChar = '0123456789'
+      Text = '1'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.HorzAlign = Center
+      Position.X = 529.000000000000000000
+      Size.Width = 47.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      StyledSettings = [Family, Style, FontColor]
+      OnChange = Edit3Change
+    end
+    object Button21: TButton
+      Align = Left
+      Margins.Left = 40.000000000000000000
+      Position.X = 616.000000000000000000
+      Size.Width = 56.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'pagecurltoolbutton'
+      TabOrder = 14
+      Text = 'Button21'
+      Visible = False
+    end
+  end
+  object CalloutPanel1: TCalloutPanel
+    Padding.Top = 11.000000000000000000
+    Position.X = 592.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 104.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 9
+    CalloutWidth = 23.000000000000000000
+    CalloutLength = 11.000000000000000000
+    object Label1: TLabel
+      Align = Client
+      StyledSettings = [Family, FontColor]
+      Size.Width = 104.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      TabOrder = 0
+    end
+  end
+end
